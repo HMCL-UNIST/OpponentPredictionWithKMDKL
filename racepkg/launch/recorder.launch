@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="racepkg" type="record_node.py" name="recorder_node" output="screen">        
+    </node>
+    
+   
+    
+</launch>

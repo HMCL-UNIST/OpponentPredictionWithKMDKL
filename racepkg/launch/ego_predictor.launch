@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="racepkg" type="pred_only.py" name="predictor_node" output="screen">        
+    </node>
+    
+   
+    
+</launch>

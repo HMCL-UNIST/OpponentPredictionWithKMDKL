@@ -1,0 +1,6 @@
+float64[] xinit
+float64[] all_parameters
+float64[] x0
+---
+int32 exitflag
+float64[] output
