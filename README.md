@@ -1,14 +1,19 @@
 # Kernel-based Metric Learning for Uncertainty-Aware Trajectory Prediction in Autonomous Racing
 
 
-## System architecture
-
-We design an autonomous racing solution that predicts opponent trajectory within an autonomous racing context. The proposed KM-DKL effectively encodes the predicted trajectory of the opponent vehicle with diverse driving policies along with its associated uncertainty.
-
+## Experiment setup
 <div style="display: flex;">
-    <img src="https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/108f1568-d47c-41b4-8ec8-3f60a580574f" alt="mainalg" width="400">
     <img src="https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/51222632-0402-4be8-9091-209ab43489f8" alt="racecar" width="400">
 </div>
+
+## Algorithm overview
+We design an autonomous racing solution that predicts opponent trajectory within an autonomous racing context. The proposed KM-DKL effectively encodes the predicted trajectory of the opponent vehicle with diverse driving policies along with its associated uncertainty.
+
+![row_algorithm](https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/dd0a9324-6a15-4afd-b182-06b33fbb4012)
+
+## Comparison to baselines
+![traj](https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/83f6b44e-f8df-4309-8ce7-1c6b75648e05)
+
 
 ## Dependency
 Tested with 
@@ -53,11 +58,10 @@ Additionally, an MPC interface in C for calling the built solver is required. We
 ## Paper 
 Under review. 
 
-
 ## Acknowledgement
- **I would like to express my sincere thanks to the following:**
 
-- MPCC formulation from the below paper.     
-```
-Zhu, Edward L., et al. "A Gaussian Process Model for Opponent Prediction in Autonomous Racing." 2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2023.
-```
+**I would like to express my sincere thanks to the following:**
+
+-MPCC formulation and backbone source code from the paper:
+  - Zhu, Edward L., et al. "A Gaussian Process Model for Opponent Prediction in Autonomous Racing." Proceedings of the 2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), IEEE, 2023. Available at: [Source Code Repository](https://github.com/MPC-Berkeley/gp-opponent-prediction-models.git)
+  
