@@ -26,11 +26,13 @@ import os
 import torch
 from racepkg.common.utils.file_utils import *
 from racepkg.prediction.covGP.covGPNN_Train import covGPNN_train
+from racepkg.prediction.multipathPP.multipathPP_Train import multipathpp_train
 
 args_ = {                    
-    "batch_size": 1024,
+    "batch_size": 128,
     "device": torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu"),
     "input_dim": 10,
+    "output_dim": 4,
     "n_time_step": 10,
     "latent_dim": 8,
     "gp_output_dim": 4,
@@ -79,6 +81,17 @@ def main_train(train_policy_names = None, valid_policy_names = None):
     covGPNN_train(train_dirs,val_dirs, real_data = True, args= args_)
     print(" Done")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+    # print("4~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    # print("MultiPlusPP init")
+    # args_['model_name'] = 'multipathpp'
+    # multipathpp_train(train_dirs, val_dirs, real_data = True, args= args_)
+    # print("MultiPlusPP train")
+    # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
+    
+
 
 def main():  
     ####################################################        

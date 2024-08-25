@@ -40,6 +40,7 @@ from racepkg.path_generator import PathGenerator
 from racepkg.common.pytypes import VehicleState, ParametricPose, BodyLinearVelocity, VehicleActuation
 from racepkg.utils import pose_to_vehicleState, odom_to_vehicleState, prediction_to_marker, fill_global_info
 from racepkg.prediction.covGP.covGPNN_predictor import CovGPPredictor
+from racepkg.prediction.multipathPP.multipathPP_predictor import MultipathPPPredictor
 from racepkg.prediction.trajectory_predictor import ConstantAngularVelocityPredictor
 from racepkg.common.utils.file_utils import *
 from racepkg.common.utils.scenario_utils import RealData
@@ -128,6 +129,8 @@ class Predictor:
         #                   2: NMPC
         #                   3 : GP
         #                   4: COVGP
+        #                   5: Multipathpp
+
         self.predictor_type = 0  ## initialize the predictor        
                 
         args = {   "batch_size": 1024,
@@ -150,6 +153,7 @@ class Predictor:
         self.gp_predictor = CovGPPredictor(N=self.n_nodes, track=self.track_info.track,  use_GPU=True, M=M, cov_factor=np.sqrt(2.0), input_predict_model = "naiveGP", args= args.copy())                            
         self.nosim_predictor = CovGPPredictor(N=self.n_nodes, track=self.track_info.track,  use_GPU=True, M=M, cov_factor=np.sqrt(2.0), input_predict_model = "nosimtsGP", args= args.copy())                            
         self.predictor = CovGPPredictor(N=self.n_nodes, track=self.track_info.track,  use_GPU=True, M=M, cov_factor=np.sqrt(2.0), input_predict_model = "simtsGP", args= args.copy())                    
+        self.multipathpp_predictor = MultipathPPPredictor(N=self.n_nodes, track=self.track_info.track,  use_GPU=True, M=M, cov_factor=np.sqrt(2.0), input_predict_model = "multipathpp", args= args.copy())                    
         
         self.dyn_srv = Server(racepkgDynConfig, self.dyn_callback)
         self.prediction_hz = rospy.get_param('~prediction_hz', default=10)
@@ -274,6 +278,9 @@ class Predictor:
                     self.tv_pred = self.gp_predictor.get_prediction(ego_state = self.cur_ego_state, target_state = self.cur_tar_state, ego_prediction = self.ego_pred)
                 elif self.predictor_type ==0: ## DKL predictor                
                     self.tv_pred = self.nosim_predictor.get_prediction(ego_state = self.cur_ego_state, target_state = self.cur_tar_state, ego_prediction = self.ego_pred)
+                elif self.predictor_type == 5: ## multipathpp
+                    self.tv_pred = self.multipathpp_predictor.get_prediction(ego_state = self.cur_ego_state, target_state = self.cur_tar_state, ego_prediction = self.ego_pred)
+                
                 else: 
                     print("select between #0 ~ #4 predictor")                
                            
@@ -289,9 +296,7 @@ class Predictor:
                     self.tv_pred_marker_pub.publish(tv_pred_markerArray)                        
                 
         end_time = time.time()
-        execution_time = end_time - start_time
-        if execution_time > 0.1:
-            print(f"Prediction execution time: {execution_time} seconds")
+        execution_time = end_time - start_time        
 
 ###################################################################################
 
