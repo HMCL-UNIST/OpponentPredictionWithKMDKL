@@ -11,7 +11,7 @@ We design an autonomous racing solution that predicts opponent trajectory within
 ![row_algorithm](https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/dd0a9324-6a15-4afd-b182-06b33fbb4012)
 
 ## Comparison to baselines
-![traj](https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/83f6b44e-f8df-4309-8ce7-1c6b75648e05)
+![trajv3](https://github.com/user-attachments/assets/fc84b8bd-0e19-4136-995c-471baf4b7dc8)
 
 
 ## Dependency
@@ -57,10 +57,22 @@ Additionally, an MPC interface in C for calling the built solver is required. We
 ## Paper 
 Under review. 
 
+## Branch Information
+
+For those interested in the comparison method (DNN, multipath++), please refer to the `multipathpp` branch of this repository. 
+This branch contains a variant of the MultiPath++ architecture used for our experiments.
+
+
+
 ## Acknowledgement
 
 **I would like to express my sincere thanks to the following:**
 
 -MPCC formulation and backbone source code from the paper:
   - Zhu, Edward L., et al. "A Gaussian Process Model for Opponent Prediction in Autonomous Racing." Proceedings of the 2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), IEEE, 2023. Available at: [Source Code Repository](https://github.com/MPC-Berkeley/gp-opponent-prediction-models.git)
+
+  
+-Multipath++ backbone code for the comparison method:
+  - Konev, Stepan. "MPA: MultiPath++ Based Architecture for Motion Prediction." arXiv, 2022. DOI: 10.48550/arXiv.2206.10041. Available online: [https://arxiv.org/abs/2206.10041](https://arxiv.org/abs/2206.10041).
+
   
