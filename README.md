@@ -1,5 +1,6 @@
 # Kernel-based Metrics Learning for Uncertain Opponent Vehicle Trajectory Prediction in Autonomous Racing (Youtube)
-[![race_thumb](https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/82bc89cb-bae4-47bf-9f88-555e1a216b46)](https://www.youtube.com/watch?v=QAzRLp6qvP4)
+[![race_thumb](https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/82bc89cb-bae4-47bf-9f88-555e1a216b46)](https://www.youtube.com/watch?v=lUekW3UPFJE)
+
 ## Experiment setup
 <div style="display: flex;">
     <img src="https://github.com/HMCL-UNIST/OpponentPredictionWithKMDKL/assets/32535170/51222632-0402-4be8-9091-209ab43489f8" alt="racecar" width="400">
