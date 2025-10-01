@@ -56,7 +56,7 @@ Additionally, an MPC interface in C for calling the built solver is required. We
 
 
 ## Paper 
-Under review. 
+Lee, Hojin, et al. "Kernel-based Metrics Learning for Uncertain Opponent Vehicle Trajectory Prediction in Autonomous Racing." IEEE Robotics and Automation Letters (2024).
 
 ## Branch Information
 
