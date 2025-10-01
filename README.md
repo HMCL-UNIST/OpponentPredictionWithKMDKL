@@ -54,9 +54,21 @@ The ego controller runs from the desktop.
 If anyone wants to explore it from jetson AGX Orin, they need to build an MPC problem for the platform `NVIDIA-Cortex-A57' by requesting a license from FORCESPRO. 
 Additionally, an MPC interface in C for calling the built solver is required. We have built a customized ROS server in C++ for solving the problem in Orin and run the Python node to interface with ROS. 
 
+Citation
+--------
+If you find this repository useful, please cite:
 
-## Paper 
-Lee, Hojin, et al. "Kernel-based Metrics Learning for Uncertain Opponent Vehicle Trajectory Prediction in Autonomous Racing." IEEE Robotics and Automation Letters (2024).
+    Lee, Hojin, et al. "Kernel-based Metrics Learning for Uncertain Opponent Vehicle Trajectory Prediction in Autonomous Racing." IEEE Robotics and Automation Letters (2024).
+
+```bibtex
+@article{lee2024kernel,
+  title={Kernel-based Metrics Learning for Uncertain Opponent Vehicle Trajectory Prediction in Autonomous Racing},
+  author={Lee, Hojin and Nam, Youngim and Lee, Sanghun and Kwon, Cheolhyeon},
+  journal={IEEE Robotics and Automation Letters},
+  year={2024},
+  publisher={IEEE}
+}
+```
 
 ## Branch Information
 
